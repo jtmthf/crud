@@ -1,12 +1,14 @@
 import { Controller } from '@nestjs/common';
-import { ApiUseTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 import { Crud } from '@nestjsx/crud';
 
 import { Device } from './device.entity';
 import { DevicesService } from './devices.service';
+import { serialize } from './response';
 
 @Crud({
   model: { type: Device },
+  serialize,
   params: {
     deviceKey: {
       field: 'deviceKey',
@@ -14,8 +16,13 @@ import { DevicesService } from './devices.service';
       primary: true,
     },
   },
+  routes: {
+    deleteOneBase: {
+      returnDeleted: true,
+    },
+  },
 })
-@ApiUseTags('devices')
+@ApiTags('devices')
 @Controller('/devices')
 export class DevicesController {
   constructor(public service: DevicesService) {}

@@ -37,6 +37,9 @@ describe('#crud', () => {
     });
     it('should set query, routes, params', () => {
       const conf: CrudGlobalConfig = {
+        auth: {
+          property: 'user',
+        },
         query: {
           limit: 10,
         },
@@ -61,6 +64,9 @@ describe('#crud', () => {
         },
       };
       const expected = {
+        auth: {
+          property: 'user',
+        },
         query: {
           limit: 10,
         },
@@ -77,7 +83,7 @@ describe('#crud', () => {
             decorators: [],
           },
           getOneBase: { interceptors: [], decorators: [] },
-          createOneBase: { interceptors: [], decorators: [] },
+          createOneBase: { interceptors: [], decorators: [], returnShallow: false },
           createManyBase: { interceptors: [], decorators: [] },
           updateOneBase: {
             interceptors: [],

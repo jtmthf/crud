@@ -6,11 +6,14 @@ import { CrudGlobalConfig } from '../interfaces';
 
 export class CrudConfigService {
   static config: CrudGlobalConfig = {
-    query: {},
+    auth: {},
+    query: {
+      alwaysPaginate: false,
+    },
     routes: {
       getManyBase: { interceptors: [], decorators: [] },
       getOneBase: { interceptors: [], decorators: [] },
-      createOneBase: { interceptors: [], decorators: [] },
+      createOneBase: { interceptors: [], decorators: [], returnShallow: false },
       createManyBase: { interceptors: [], decorators: [] },
       updateOneBase: {
         interceptors: [],
@@ -34,13 +37,14 @@ export class CrudConfigService {
       RequestQueryBuilder.setOptions(config.queryParser);
     }
 
+    const auth = isObjectFull(config.auth) ? config.auth : {};
     const query = isObjectFull(config.query) ? config.query : {};
     const routes = isObjectFull(config.routes) ? config.routes : {};
     const params = isObjectFull(config.params) ? config.params : {};
 
     CrudConfigService.config = deepmerge(
       CrudConfigService.config,
-      { query, routes, params },
+      { auth, query, routes, params },
       { arrayMerge: (a, b, c) => b },
     );
   }
