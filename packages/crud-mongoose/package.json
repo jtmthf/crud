@@ -1,0 +1,44 @@
+{
+  "name": "@nestjsx/crud-mongoose",
+  "description": "NestJs CRUD for RESTful APIs - Mongoose",
+  "version": "4.2.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nestjsx/crud.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nestjsx/crud/issues"
+  },
+  "keywords": [
+    "typescript",
+    "mongoose",
+    "nest",
+    "nestjs",
+    "rest",
+    "restful",
+    "api",
+    "crud",
+    "crud-generator",
+    "backend",
+    "frameworks"
+  ],
+  "author": {
+    "name": "Jack Moore",
+    "email": "jtmthf@mst.edu"
+  },
+  "scripts": {
+    "build": "npx tsc -b"
+  },
+  "dependencies": {
+    "escape-string-regexp": "^2.0.0"
+  }
+}

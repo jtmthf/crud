@@ -17,10 +17,12 @@
     "paths": {
       "@nestjsx/crud": ["crud/src"],
       "@nestjsx/crud-typeorm": ["crud-typeorm/src"],
+      "@nestjsx/crud-mongoose": ["crud-mongoose/src"],
       "@nestjsx/crud-request": ["crud-request/src"],
       "@nestjsx/util": ["util/src"],
       "@nestjsx/crud/*": ["crud/src/*"],
       "@nestjsx/crud-typeorm/*": ["crud-typeorm/src/*"],
+      "@nestjsx/crud-mongoose/*": ["crud-mongoose/src/*"],
       "@nestjsx/crud-request/*": ["crud-request/src/*"],
       "@nestjsx/util/*": ["util/src/*"]
     }
@@ -28,6 +30,7 @@
   "references": [
     { "path": "crud" },
     { "path": "crud-typeorm" },
+    { "path": "crud-mongoose" },
     { "path": "crud-request" },
     { "path": "util" }
   ]
